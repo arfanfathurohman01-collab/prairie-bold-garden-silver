@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", "Times New Roman", serif;
+  --font-sans: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-bg: #f3efe6;
+  --color-surface: #fbf8f1;
+  --color-elevated: #ffffff;
+  --color-ink: #1c1915;
+  --color-muted: #6b6458;
+  --color-subtle: #8a8276;
+  --color-line: #ddd4c4;
+  --color-line-strong: #c9beaa;
+  --color-accent: #2f4a42;
+  --color-accent-fg: #f6f3ea;
+  --color-sage: #4f6f62;
+  --color-done: #3d6b4f;
+  --color-wip: #8a6a32;
+  --color-todo: #b9b0a2;
+  --color-danger: #8c3b32;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 28px;
+
+  --shadow-card: 0 1px 0 rgba(28, 25, 21, 0.04), 0 12px 32px -18px rgba(28, 25, 21, 0.18);
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  html,
+  body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    min-height: 100%;
+  }
+
+  body {
+    background-image:
+      radial-gradient(ellipse at top, rgba(47, 74, 66, 0.05), transparent 42%),
+      linear-gradient(180deg, #f6f2e9 0%, #efe8da 100%);
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 560;
+    letter-spacing: -0.03em;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-accent) 22%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
